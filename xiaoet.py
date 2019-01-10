@@ -5,10 +5,10 @@ from m3u8.model import SegmentList, Segment, find_key
 
 
 class XET(object):
-    APPID = ''  # APPid
-    XIAOEID = ''  # Cookie XIAOEID
-    RESOURCEID = ''  # ResourceID，这里的resourceid代表课程id
-    sessionid = ''  # Cookie laravel_session
+    APPID = 'appv72m4Msi7516'  # APPid
+    XIAOEID = '4ed04efd1969357f144e2696012a8c35'  # Cookie XIAOEID
+    RESOURCEID = 'p_5a5b5912459da_FAyRbOC6'  # ResourceID，这里的resourceid代表课程id
+    sessionid = 'eyJpdiI6IjB1Sys4SURzZEJIMmlyQXhUYnZLcWc9PSIsInZhbHVlIjoiYXdOZ2dFMjVoQXNFYm5FbjZSWEZqUFBQMjBUejFYZnhKUWhoZUJOQlVBa0g2RTFJbE9ySUQrUUM3cnVjcFg0a0FjRG5rV2VkRU9yazE5ZnMrVXB0Z3c9PSIsIm1hYyI6ImI2MWViN2JmYzIxZTAwMzg1YjliMTg3YjM1ZjA5MDgwNGI3ZDIxYjBhYmZlZDVhMmI0YmMyZmFmNzUwYjU3YTkifQ%3D%3D'  # Cookie laravel_session
     session = Session()
     header = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36',
@@ -17,7 +17,7 @@ class XET(object):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
     cookie = {
-        'XIAOEID': XIAOEID,
+        'tgw_l7_route': XIAOEID,
         'laravel_session': sessionid
     }
 
@@ -112,7 +112,7 @@ class XET(object):
         # save m3u8 file
         m3u8_file = os.path.join(media_dir, '{title}.m3u8'.format(title=title))
         if not os.path.exists(m3u8_file):
-            with open(m3u8_file, 'wb', encoding='utf8') as f:
+            with open(m3u8_file, 'w', encoding='utf8') as f:
                 f.write(media.dumps())
 
     def audio(self, url, media_dir, title):
